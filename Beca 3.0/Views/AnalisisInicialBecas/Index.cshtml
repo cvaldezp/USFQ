@@ -1,0 +1,267 @@
+﻿@model IEnumerable<Beca_3._0.Models.AnalisisInicialBeca>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombresCompletosEstudiante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechasolicitudBeca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailEstudiante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreRepresentanteFinan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApellidoRepresentanteFinan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NacionalidadRepresentanteFinan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoCivilRF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResidenciaPropia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GeneroRF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SectorRepresentanteFinan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CiudadRepresentanteFinan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelefonoCelularRepresentanteFinan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelefonoConvencionalRepresentanteFinan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LugarTrabajoActualRF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CargoTrabajoActualRF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DireccionTrabajoRF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroAniosTrabajoActualRF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NivelEducacionRF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApellidoConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NacionalidadConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoCivilConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResidenciaPropiaConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GeneroConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SectorConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CiudadConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelefonoCelularConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelefonoConvencionalConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LugarTrabajoActualConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CargoTrabajoActualConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DireccionTrabajoConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroAniosTrabajoActualConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NivelEducacionCulminadaConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroHijosConyuge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DependeAlguienMas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombresDependientesAdicionales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComentariosAicionales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MontoInterv)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cedula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombresCompletosEstudiante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechasolicitudBeca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailEstudiante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreRepresentanteFinan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApellidoRepresentanteFinan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NacionalidadRepresentanteFinan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoCivilRF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResidenciaPropia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GeneroRF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SectorRepresentanteFinan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CiudadRepresentanteFinan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefonoCelularRepresentanteFinan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefonoConvencionalRepresentanteFinan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LugarTrabajoActualRF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CargoTrabajoActualRF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DireccionTrabajoRF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroAniosTrabajoActualRF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NivelEducacionRF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApellidoConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NacionalidadConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoCivilConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResidenciaPropiaConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GeneroConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SectorConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CiudadConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefonoCelularConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefonoConvencionalConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LugarTrabajoActualConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CargoTrabajoActualConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DireccionTrabajoConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroAniosTrabajoActualConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NivelEducacionCulminadaConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroHijosConyuge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DependeAlguienMas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombresDependientesAdicionales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComentariosAicionales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MontoInterv)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SolicitudID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SolicitudID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SolicitudID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Asis_FinanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="PRC_ACTUALIZA_EGRESOS3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDEgresos" Type="int" Mode="In" />
+          <Parameter Name="Alimentacion" Type="float" Mode="In" />
+          <Parameter Name="EducacionParam" Type="float" Mode="In" />
+          <Parameter Name="SaludParam" Type="float" Mode="In" />
+          <Parameter Name="VestimentaParam" Type="float" Mode="In" />
+          <Parameter Name="ArriendoParam" Type="float" Mode="In" />
+          <Parameter Name="GastosBasicosParam" Type="float" Mode="In" />
+          <Parameter Name="SeguroPrivadoParam" Type="float" Mode="In" />
+          <Parameter Name="CuotaPrestamosParam" Type="float" Mode="In" />
+          <Parameter Name="RestaurantesParam" Type="float" Mode="In" />
+          <Parameter Name="EntretenimientoParam" Type="float" Mode="In" />
+          <Parameter Name="ViajesParam" Type="float" Mode="In" />
+          <Parameter Name="CompraEquiposParam" Type="float" Mode="In" />
+          <Parameter Name="OtrosEgresosParam" Type="float" Mode="In" />
+          <Parameter Name="DescuentoRolParam" Type="float" Mode="In" />
+          <Parameter Name="TotalegresosParam" Type="float" Mode="In" />
+        </Function>
+        <Function Name="PRC_SOLI_INICIAL_BECA3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="Asis_FinanModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Asis_FinanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Asis_FinanEntities1" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="PRC_ACTUALIZA_EGRESOS3">
+            <Parameter Name="IDEgresos" Mode="In" Type="Int32" />
+            <Parameter Name="Alimentacion" Mode="In" Type="Double" />
+            <Parameter Name="EducacionParam" Mode="In" Type="Double" />
+            <Parameter Name="SaludParam" Mode="In" Type="Double" />
+            <Parameter Name="VestimentaParam" Mode="In" Type="Double" />
+            <Parameter Name="ArriendoParam" Mode="In" Type="Double" />
+            <Parameter Name="GastosBasicosParam" Mode="In" Type="Double" />
+            <Parameter Name="SeguroPrivadoParam" Mode="In" Type="Double" />
+            <Parameter Name="CuotaPrestamosParam" Mode="In" Type="Double" />
+            <Parameter Name="RestaurantesParam" Mode="In" Type="Double" />
+            <Parameter Name="EntretenimientoParam" Mode="In" Type="Double" />
+            <Parameter Name="ViajesParam" Mode="In" Type="Double" />
+            <Parameter Name="CompraEquiposParam" Mode="In" Type="Double" />
+            <Parameter Name="OtrosEgresosParam" Mode="In" Type="Double" />
+            <Parameter Name="DescuentoRolParam" Mode="In" Type="Double" />
+            <Parameter Name="TotalegresosParam" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_SOLI_INICIAL_BECA3">
+            <Parameter Name="Email" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Asis_FinanModelStoreContainer" CdmEntityContainer="Asis_FinanEntities1" >
+          <FunctionImportMapping FunctionImportName="PRC_ACTUALIZA_EGRESOS3" FunctionName="Asis_FinanModel.Store.PRC_ACTUALIZA_EGRESOS3" />
+          <FunctionImportMapping FunctionImportName="PRC_SOLI_INICIAL_BECA3" FunctionName="Asis_FinanModel.Store.PRC_SOLI_INICIAL_BECA3" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,42 @@
+﻿@model Beca_3._0.Models.RolDescuentoBecas3
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RolDescuentoBecas3</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EgresosFamiliaresBeca3.EgresosFamiliaresID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EgresosFamiliaresBeca3.EgresosFamiliaresID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorOtrosEgresos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorOtrosEgresos)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DescuentoRolID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

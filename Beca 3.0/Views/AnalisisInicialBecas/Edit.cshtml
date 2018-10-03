@@ -1,0 +1,752 @@
+﻿@model Beca_3._0.Models.AnalisisInicialBeca
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<style type="text/css">
+    table {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th {
+        background: #808080;
+        text-align: left;
+        color: #FFF;
+        font-size: 18px;
+    }
+
+    td {
+        vertical-align: middle;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<link href="~/css/css/font-awesome.css" rel="stylesheet" />
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script src="~/Scripts/jquery.validate.js" type="text/javascript"></script>
+
+<script language="javascript" type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.js"></script>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+@*@using (Html.BeginForm("LongRunningDemoProcess", "Home", FormMethod.Post,
+                new { encType = "multipart/form-data", id = "myform", name = "myform" }))*@
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <h2> INGRESAR DATOS DE SOLICITUD ESTUDIANTE</h2>
+
+
+
+    
+
+    @*<h4>    La USFQ asigna anualmente un presupuesto para el Programa de Asistencia Financiera(beca y préstamo).Un comité analiza el perfil académico del estudiante y la necesidad de apoyo económico de la familia.</h4>*@
+
+
+
+
+
+    @*<h4> Para aplicar a este programa, por favor llene los campos del formulario adjunto. El Comité de Asistencia Financiera realizará un análisis preliminar con la información proporcionada, a fin de asignar los porcentajes de ayuda financiera a los que su representado(a) pueda acceder.</h4>*@
+    <hr />
+        <h4 >
+            <b > IMPORTANTE: Los datos a ser llenados en esta sección deben incluir la información correspondiente al núcleo familiar.</b >
+
+
+          </h4 >
+
+
+
+
+
+      <form >
+
+
+          <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.SolicitudID)
+
+
+
+
+            <table width="100%" border="1" cellspacing="3" cellpadding="3">
+                <tr>
+                    <th colspan="6" scope="col">INFORMACIÓN ESTUDIANTE</th>
+                </tr>
+                <tr>
+                    <td width="20%">Cédula: (*)</td>
+                    <td colspan="5">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
+                                @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "form-control necessary cedula", @placeholder = "Ej: 1713162318", @required = "" } })
+                                @Html.ValidationMessageFor(model => model.Cedula, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nombres y Apellidos: (*)</td>
+                    <td colspan="5">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.ApellidosNombres, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.NombresCompletosEstudiante, new { htmlAttributes = new { @class = "form-control necessary nombre", @placeholder = "Ej: Martínez Mendieta Carlos Raúl", @required = "" } })
+                                @Html.ValidationMessageFor(model => model.NombresCompletosEstudiante, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+
+
+            <hr />
+            <center>
+                <h4>
+                    <b>INFORMACIÓN GENERAL DE REPRESENTANTE FINANCIERO Y SU CÓNYUGE (SI APLICA)</b>
+                </h4>
+            </center>
+
+            <table width="100%" border="1" cellspacing="3" cellpadding="3">
+
+                <tr>
+                    <td>¿Cuánto puede usted invertir mensualmente en el pago de los estudios universitarios de su hijo?</td>
+                    <td>
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.NombreBeca, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">                                
+                                @Html.EditorFor(model => model.MontoInterv, new { htmlAttributes = new { @class = "form-control monto", @placeholder = "Ej: 600", @required = "" } })
+                                @Html.ValidationMessageFor(model => model.MontoInterv, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <hr />
+
+            <table width="100%" border="1" cellspacing="3" cellpadding="3">
+                <tr>
+                    <th colspan="6" scope="col">Representante Financiero (*)</th>
+                </tr>
+
+
+            </table>
+
+
+            <table width="100%" border="1" cellspacing="3" cellpadding="3">
+                <tr>
+                    <td>Nombres y Apellidos:</td>
+                    <td colspan="3">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.Periodo, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+
+                                @Html.EditorFor(model => model.NombreRepresentanteFinan, new { htmlAttributes = new { @class = "form-control", @required = "" } })
+                                @Html.ValidationMessageFor(model => model.NombreRepresentanteFinan, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Estado civil:</td>
+                    <td width="30%">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.Periodo, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @*@Html.EnumDropDownListFor(model => model.EstadoCivilRF, htmlAttributes: new { @class = "form-control" })*@
+                                @Html.DropDownListFor(model => model.EstadoCivilRF, (SelectList)ViewBag.ListaEstadocivil, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.EstadoCivilRF, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                    <td>¿Su residencia es propia o arrendada?</td>
+                    <td width="30%">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.GeneroRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.GeneroRF, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.EditorFor(model => model.ResidenciaPropia, new { htmlAttributes = new { @class = "form-control", @required = "" } })
+                                @Html.ValidationMessageFor(model => model.ResidenciaPropia, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="15%">Barrio o Sector:</td>
+                    <td width="30%">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.CedulaRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.SectorRepresentanteFinan, new { htmlAttributes = new { @class = "form-control", @required = "" } })
+                                @Html.ValidationMessageFor(model => model.SectorRepresentanteFinan, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+
+
+
+                    <td>Ciudad:</td>
+                    <td>
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.Periodo, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.CiudadRepresentanteFinan, new { htmlAttributes = new { @class = "form-control", @required = "" } })
+                                @*@Html.DropDownListFor(model => model.CiudadRepresentanteFinan, (SelectList)ViewBag.Listaciudades, new { @class = "form-control" })*@
+                                @Html.ValidationMessageFor(model => model.CiudadRepresentanteFinan, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nivel de educación culminada:</td>
+                    <td width="30%">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.GeneroRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.GeneroRF, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @*@Html.EditorFor(model => model.NivelEducacionRF, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.DropDownListFor(model => model.NivelEducacionRF, (SelectList)ViewBag.ListaNivelEducacion, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.NivelEducacionRF, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                    <td width="15%">Cargo en su lugar de trabajo:</td>
+                    <td width="30%">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.CedulaRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.CargoTrabajoActualRF, new { htmlAttributes = new { @class = "form-control", @required = "" } })
+                                @Html.ValidationMessageFor(model => model.CargoTrabajoActualRF, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dirección de la empresa en la que trabaja:</td>
+                    <td colspan="5">
+                        <div class="form-group">
+                        @*@Html.LabelFor(model => model.CedulaRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.DireccionTrabajoRF, new { htmlAttributes = new { @class = "form-control", @required = "" } })
+                                @Html.ValidationMessageFor(model => model.DireccionTrabajoRF, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+                <tr hidden="hidden">
+                    <td width="5%">¿Cuánto tiempo está en su trabajo actual? (*)</td>
+                    <td>
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.CedulaRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.NumeroAniosTrabajoActualRF, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NumeroAniosTrabajoActualRF, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="5%">¿Cuánto tiempo está en su trabajo actual? (*)</td>
+                    <td>
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.CedulaRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.AniosTrabajoActualRF, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AniosTrabajoActualRF, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+               
+                    <td>Relación con el estudiante:</td>
+                    <td>
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.CedulaRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.RefFamiliarRepFinanciero, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.RefFamiliarRepFinanciero, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            
+            <hr />
+            <b> (Si el estado civil del representante financiero es casado o unión libre, es obligatorio completar la información a continuación)</b>
+            <table width="100%" border="1" cellspacing="3" cellpadding="3">
+                <tr>
+                    <th colspan="6" scope="col">Cónyuge del representante financiero</th>
+                </tr>
+
+
+                <tr>
+                    <td>Apellidos y nombres:</td>
+
+                    <td width="30%">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.Periodo, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.NombreConyuge, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NombreConyuge, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                    <td>Estado civil:</td>
+                    <td width="30%">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.GeneroRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.GeneroRF, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @*@Html.EnumDropDownListFor(model => model.EstadoCivilConyuge, htmlAttributes: new { @class = "form-control" })*@
+                                @Html.DropDownListFor(model => model.EstadoCivilConyuge, (SelectList)ViewBag.ListaEstadocivil, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.EstadoCivilConyuge, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="15%">¿Su residencia es propia o alquilada?</td>
+                    <td width="30%">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.CedulaRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.ResidenciaPropiaConyuge, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ResidenciaPropiaConyuge, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>Nivel de educación culminada:</td>
+                    <td>
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.Periodo, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.NivelEducacionCulminadaConyuge, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.DropDownListFor(model => model.NivelEducacionCulminadaConyuge, (SelectList)ViewBag.ListaNivelEducacion, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.NivelEducacionCulminadaConyuge, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lugar de trabajo actual:</td>
+                    <td width="30%">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.GeneroRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.GeneroRF, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.EditorFor(model => model.LugarTrabajoActualConyuge, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.LugarTrabajoActualConyuge, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                    <td width="15%">Cargo en su lugar de trabajo:</td>
+                    <td width="30%">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.CedulaRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.CargoTrabajoActualConyuge, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CargoTrabajoActualConyuge, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Dirección de trabajo:</td>
+                    <td>
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.Periodo, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.DireccionTrabajoConyuge, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DireccionTrabajoConyuge, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                    <td>¿Cuánto tiempo está en su trabajo actual?</td>
+                    <td hidden="hidden">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.GeneroRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.GeneroRF, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.EditorFor(model => model.NumeroAniosTrabajoActualConyuge, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NumeroAniosTrabajoActualConyuge, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.GeneroRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.GeneroRF, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.EditorFor(model => model.AniosTrabajoActualConyuge, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AniosTrabajoActualConyuge, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <hr />
+            <table width="100%" border="1" cellspacing="3" cellpadding="3">
+                <tr>
+                    <th colspan="6" scope="col">¿Cuántos hijos dependientes tiene(n) usted(es)?</th>
+                </tr>
+
+            </table>
+            <table width="100%" border="1" cellspacing="3" cellpadding="3">
+                <tr>
+
+                    <td>Número de hijos:</td>
+                    <td>
+                        @*<div class="form-group">*@
+                        @*@Html.LabelFor(model => model.Periodo, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @*<div class="col-md-10">*@
+                        @Html.EditorFor(model => model.NumeroHijosConyuge, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NumeroHijosConyuge, "", new { @class = "text-danger" })
+                        @*</div>*@
+                        @*</div>*@
+                    </td>
+                </tr>
+                <tr>
+                        <td colspan="5">
+                            <h4>
+                                <b>IMPORTANTE: Por favor llene el siguiente cuadro con la información completa de todos sus hijos incluyendo el aspirante o estudiante de la USFQ.</b>
+                            </h4>
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <th>
+                            Nombres y Apellidos
+                        </th>
+                        <th>
+                            Institución en la que estudia
+                        </th>
+                        <th>
+                            Costo colegiatura:
+                        </th>
+                        <th>
+                            Acciones
+                        </th>
+
+                    </tr>
+
+                    @foreach (var hijos in Model.HijoDependienteBeca3)
+                    {
+
+                        <tr>
+                            <td>
+                                @hijos.NombresApellidos
+                            </td>
+                            <td>
+                                @hijos.InstitucionEsdudia
+                            </td>
+                            <td>
+                                @hijos.CostoAnualEstudio
+                            </td>
+                            <td>
+
+                                @Html.ActionLink("Editar", "Edit", "HijoDependienteBecas", new { id = hijos.HijoDependienteID }, new { @class = "btn btn-primary btn-success" })
+                                @Html.ActionLink("Borrar", "Delete", "HijoDependienteBecas", new { id = hijos.HijoDependienteID }, new { @class = "btn btn-primary btn-danger" })
+                            </td>
+                        </tr>
+                    }
+
+
+                    <tr>
+                        <td colspan="4">
+                            @Html.ActionLink("Agregar Hijo Dependiente", "Create", "HijoDependienteBecas", null, new { @class = "btn btn-primary btn-large llamar" })
+                        </td>
+                    </tr>
+            </table>
+            <br />
+            <table width="100%" border="1" cellspacing="3" cellpadding="3">
+
+                @*<tr>
+                        <td colspan="4">
+                            @Html.ActionLink("Ingresar Dependientes", "Index", "HijoDependientes", null, new { @class = "btn btn-primary btn-large" })
+                        </td>
+                    </tr>*@
+                <tr>
+                    <td>¿Depende alguien más de sus ingresos?</td>
+                    <td width="30%">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.GeneroRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.GeneroRF, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @*@Html.EditorFor(model => model.DependeAlguienMas, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.DropDownListFor(model => model.NivelEducacionRF, (SelectList)ViewBag.ListaSIoNO, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.DependeAlguienMas, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                    <td width="15%">¿Quién?:</td>
+                    <td width="30%">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.CedulaRF, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.NombresDependientesAdicionales, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NombresDependientesAdicionales, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <hr />
+            <p>Si necesita hacer alguna aclaración adicional sobre sus dependientes por favor hágalo aquí:</p>
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.ComentariosAicionales, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.ComentariosAicionales, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ComentariosAicionales, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.FechasolicitudBeca, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.FechasolicitudBeca, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.TextBoxFor(model => model.FechasolicitudBeca, new { @class = "form-control", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(model => model.FechasolicitudBeca, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <br />
+                <div class="col-md-10">
+                    @*@Html.ActionLink("Regresar a la Lista", "Tabs", "SolicitudEstudiantes", null, new { @class = "btn btn-primary btn-large" })*@
+                    @Html.ActionLink("Cancelar", "Index", "Home", null, new { @class = "btn btn-primary btn-default" })
+                    <input type="submit" value="Siguiente" class="btn btn-success boton" />
+                    @*<input type="submit" name="operation" id="process" value="process" class="btn btn-success boton" />*@
+                    @*@Html.ActionLink("Siguiente", "Index", "HijoDependientes", null, new { @class = "btn btn-primary btn-large" })*@
+
+                </div>
+
+            </div>
+
+
+             @*We want to show this while the server process is running:*@
+            @*<div id="divProcessing">
+                <p>Processing, please wait . . .
+                    <img src="~/Content/ajax-loader.gif" /> </p>
+            </div>*@
+
+            @*// We want to display the result from our submission in here:*@
+            @*<div id="divResult">
+                <p>listo</p>
+            </div>*@
+
+            @if (ViewBag.Message != null)
+            {
+                <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+                </script>
+            }
+</div>
+       
+
+    </form>
+}
+
+<script type="text/javascript">
+
+
+
+    var emailreg = /^[a-zA-Z0-9_\.\-]+[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
+    $(".boton").click(function () {
+        $(".error").remove();
+        if ($(".nombre").val() == "Ej: Martínez Carlos") {
+            $(".nombre").focus().after("<span class='error'>Este campo es Requerido</span>");
+            return false;
+        } else if ($(".cedula").val() == "Ej: 1713162318") {
+            $(".cedula").focus().after("<span class='error'>Este campo es Requerido</span>");
+            return false;
+        } else if ($(".monto").val() == "1") {
+            $(".monto").focus().after("<span class='error'>Este campo es Requerido</span>");
+            return false;
+        } else if ($(".mensaje").val() == "") {
+            $(".mensaje").focus().after("<span class='error'>Ingrese un mensaje</span>");
+            return false;
+        }
+    });
+    $(".nombre, .asunto, .mensaje, .fecha").keyup(function () {
+        if ($(this).val() != "") {
+            $(".error").fadeOut();
+            return false;
+        }
+    });
+
+
+    (function () {
+        $('.llamar').on('click', function (e) {
+            var $a = $(this);
+            var url = $a.prop('href').split("?")[0];
+
+            console.log(url);
+            // http://localhost:60506/ReferenciasBancariaGaranteCH/Create/1
+
+            var parametro = {
+                CedulaParam: $('#Cedula').val(),
+                NombreEstudianteParam: $('#NombresCompletosEstudiante').val(),
+                ApellidoEstudianteParam: $('#ApellidoEstudiante').val(),
+                FechasolicitudBecaParam: "01-01-2018",
+                EmailEstudianteParam: $('#EmailEstudiante').val(),
+                NombreRepresentanteFinanParam: $('#NombreRepresentanteFinan').val(),
+                ApellidoRepresentanteFinanParam: $('#ApellidoRepresentanteFinan').val(),
+                NacionalidadRepresentanteFinanParam: $('#NacionalidadRepresentanteFinan').val(),
+                EstadoCivilRFParam: 1,
+                ResidenciaPropiaParam: $('#ResidenciaPropia').val(),
+                GeneroRFParam: $('#GeneroRF').val(),
+                SectorRepresentanteFinanParam: $('#SectorRepresentanteFinan').val(),
+                CiudadRepresentanteFinanParam: $('#CiudadRepresentanteFinan').val(),
+                TelefonoCelularRepresentanteFinanParam: $('#TelefonoCelularRepresentanteFinan').val(),
+                TelefonoConvencionalRepresentanteFinanParam: $('#TelefonoConvencionalRepresentanteFinan').val(),
+                LugarTrabajoActualRFParam: $('#LugarTrabajoActualRF').val(),
+                CargoTrabajoActualRFParam: $('#CargoTrabajoActualRF').val(),
+                DireccionTrabajoRFParam: $('#DireccionTrabajoRF').val(),
+                NumeroAniosTrabajoActualRFParam: $('#NumeroAniosTrabajoActualRF').val(),
+                NivelEducacionRFParam: $('#NivelEducacionRF').val(),
+                NombreConyugeParam: $('#NombreConyuge').val(),
+                ApellidoConyugeParam: $('#ApellidoConyuge').val(),
+                NacionalidadConyugeParam: $('#NacionalidadConyuge').val(),
+                EstadoCivilConyugeParam: 1,
+                ResidenciaPropiaConyugeParam: $('#ResidenciaPropiaConyuge').val(),
+                GeneroConyugeParam: $('#GeneroConyuge').val(),
+                SectorConyugeParam: $('#SectorConyuge').val(),
+                CiudadConyugeParam: $('#CiudadConyuge').val(),
+                TelefonoCelularConyugeParam: $('#TelefonoCelularConyuge').val(),
+                TelefonoConvencionalConyugeParam: $('#TelefonoConvencionalConyuge').val(),
+                LugarTrabajoActualConyugeParam: $('#LugarTrabajoActualConyuge').val(),
+                CargoTrabajoActualConyugeParam: $('#CargoTrabajoActualConyuge').val(),
+                DireccionTrabajoConyugeParam: $('#DireccionTrabajoConyuge').val(),
+                NumeroAniosTrabajoActualConyugeParam: $('#NumeroAniosTrabajoActualConyuge').val(),
+                NivelEducacionCulminadaConyugeParam: $('#NivelEducacionCulminadaConyuge').val(),
+                NumeroHijosConyugeParam: $('#NumeroHijosConyuge').val(),
+                DependeAlguienMasParam: $('#DependeAlguienMas').val(),
+                NombresDependientesAdicionalesParam: $('#NombresDependientesAdicionales').val(),
+                ComentariosAicionalesParam: $('#ComentariosAicionales').val(),
+                EstadoParam: $('#Estado').val(),
+                FechaSolicitud: $('#Estado').val(),
+                MontoIntervParam: $('#MontoInterv').val(),                
+                AniosTrabajoActualRFParam: $('#AniosTrabajoActualRF').val(),
+                RefFamiliarRepFinancieroParam: $('#RefFamiliarRepFinanciero').val(),
+                AniosTrabajoActualConyugeParam: $('#AniosTrabajoActualConyuge').val()
+                
+                
+
+            };
+
+            console.log($.param(parametro));
+            // tipo=1
+
+            console.log(url + "?" + $.param(parametro));
+            // http://localhost:60506/ReferenciasBancariaGaranteCH/Create/1?tipo=1
+
+            //e.preventDefault();
+
+            $a.prop('href', url + "?" + $.param(parametro));
+        });
+    })();
+
+    $(document).ready(function () {
+        $("input").on("keypress", function () {
+            $input = $(this);
+            setTimeout(function () {
+                $input.val($input.val().toUpperCase());
+            }, 50);
+        })
+    })
+
+    $(document).ready(function () {
+        $("textarea").on("keypress", function () {
+            $input = $(this);
+            setTimeout(function () {
+                $input.val($input.val().toUpperCase());
+            }, 50);
+        })
+    })
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+@*<script type="text/javascript">
+
+    $(document).ready(function () {
+
+      // Hide the "busy" Gif at load:
+      $("#divProcessing").hide();
+
+      // Attach click handler to the submit button:
+      $('#process').click(function () {
+          $('#myform').submit();
+      });
+
+      // Handle the form submit event, and make the Ajax request:
+      $("#myform").on("submit", function (event) {
+        event.preventDefault();
+
+        // Show the "busy" Gif:
+        $("#divProcessing").show();
+        var url = $(this).attr("action");
+        var formData = $(this).serialize();
+        $.ajax({
+          url: url,
+          type: "POST",
+          data: formData,
+          dataType: "json",
+          success: function (resp) {
+
+            // Hide the "busy" gif:
+            $("#divProcessing").hide();
+
+            // Do something useful with the data:
+            $("<h3>" + resp.FirstName + " " + resp.LastName + "</h3>").appendTo("#divResult");
+          }
+        })
+      });
+    });
+</script>*@
+}

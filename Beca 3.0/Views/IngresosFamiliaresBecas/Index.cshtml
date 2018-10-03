@@ -1,0 +1,117 @@
+﻿@model IEnumerable<Beca_3._0.Models.IngresosFamiliaresBecas3>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AnalisisInicialBeca.Cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sueldoBrutoPadre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IngresosAdicionalesPadre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InversionesPadre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArriendoPropiedadesPadre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SioNoRecibeAdicionalPadre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SioNoTrabajaRelDependenciaPadre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sueldoBrutoMadre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IngresosAdicionalesMadre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InversionesMadre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArriendoPropiedadesMadre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SioNoRecibeAdicionalMadre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SioNoTrabajaRelDependenciaMadre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalIngresosPadre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalIngresosMadre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnalisisInicialBeca.Cedula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sueldoBrutoPadre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IngresosAdicionalesPadre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InversionesPadre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArriendoPropiedadesPadre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SioNoRecibeAdicionalPadre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SioNoTrabajaRelDependenciaPadre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sueldoBrutoMadre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IngresosAdicionalesMadre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InversionesMadre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArriendoPropiedadesMadre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SioNoRecibeAdicionalMadre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SioNoTrabajaRelDependenciaMadre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalIngresosPadre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalIngresosMadre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IngresosFamiliaresID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IngresosFamiliaresID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IngresosFamiliaresID })
+        </td>
+    </tr>
+}
+
+</table>

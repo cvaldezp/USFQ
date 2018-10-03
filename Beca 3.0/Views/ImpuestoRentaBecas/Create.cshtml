@@ -1,0 +1,162 @@
+﻿@model Beca_3._0.Models.ImpuestoRentaBeca3
+<style type="text/css">
+    table {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th {
+        background: #808080;
+        text-align: left;
+        color: #FFF;
+        font-size: 18px;
+    }
+
+    td {
+        vertical-align: middle;
+    }
+</style>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>INFORMACION DE IMPUESTO A LA RENTA</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <h4>Nota: Colocar el valor de 0 si no tiene valores por ingresar.</h4>
+    <div class="form-horizontal">
+
+
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <table width="100%" border="1" cellspacing="3" cellpadding="3">
+            <tr>
+                <th colspan="6" scope="col">Representante financiero</th>
+            </tr>
+            En esta sección por favor ingrese la información de su Impuesto a la Renta, según el tipo de formulario con el que declara:
+            <tr>
+                <td>Formulario 102 suma de los valores reportados en los casilleros 729 + 741:</td>
+                <td>
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.Genero, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.Genero, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.EditorFor(model => model.Formulario102Padre, new { htmlAttributes = new { @class = "form-control solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.Formulario102Padre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Formulario 104 el valor promedio de los últimos tres meses reportado en el casillero 409:</td>
+                <td>
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.Genero, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.Genero, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.EditorFor(model => model.Formulario104Padre, new { htmlAttributes = new { @class = "form-control solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.Formulario104Padre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Comprobante de retención 107 el valor reportado en el casillero 349 (Comprobante del año anterior):</td>
+                <td colspan="3">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.Cedula, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Comprobante107Padre, new { htmlAttributes = new { @class = "form-control solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.Comprobante107Padre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+
+
+        <hr />
+
+        <table width="100%" border="1" cellspacing="3" cellpadding="3">
+            <tr>
+                <th colspan="6" scope="col">Cónyuge del representante financiero</th>
+            </tr>
+            <tr>
+                <td>Formulario 102 suma de los valores reportados en los casilleros 729 + 741:</td>
+                <td>
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.Genero, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.Genero, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.EditorFor(model => model.Formulario102Madre, new { htmlAttributes = new { @class = "form-control solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.Formulario102Madre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Formulario 104 el valor promedio de los últimos tres meses reportado en el casillero 409:</td>
+                <td>
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.Genero, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.Genero, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.EditorFor(model => model.Formulario104Madre, new { htmlAttributes = new { @class = "form-control solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.Formulario104Madre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Comprobante de retención 107 el valor reportado en el casillero 349 (Comprobante del año anterior):</td>
+                <td>
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.Cedula, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Comprobante107Madre, new { htmlAttributes = new { @class = "form-control solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.Comprobante107Madre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+
+
+        <hr />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Regresar", "Index", "EgresosFamiliaresBecas", null, new { @class = "btn btn-primary btn-large" })
+                <input type="submit" value="Enviar" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+        @Html.ActionLink("Back to List", "Tabs", "SolicitudEstudiantes")
+    </div>*@
+
+
+<script>
+    $(document).on("keypress", ".solonumero", function (evt) {
+
+
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        console.log(charCode);
+        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 44)
+            return false;
+
+        return true;
+    });
+</script>

@@ -1,0 +1,123 @@
+﻿@model IEnumerable<Beca_3._0.Models.EgresosFamiliaresBeca3>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AnalisisInicialBeca.Cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alimentacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Educacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salud)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vestimenta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arriendo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GastosBasicos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeguroPrivado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CuotaPrestamos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Restaurantes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Entretenimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Viajes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompraEquipos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtrosEgresos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescuentoRol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Totalegresos)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnalisisInicialBeca.Cedula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alimentacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Educacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salud)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vestimenta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Arriendo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GastosBasicos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeguroPrivado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CuotaPrestamos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Restaurantes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Entretenimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Viajes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompraEquipos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtrosEgresos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescuentoRol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Totalegresos)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EgresosFamiliaresID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EgresosFamiliaresID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EgresosFamiliaresID })
+        </td>
+    </tr>
+}
+
+</table>

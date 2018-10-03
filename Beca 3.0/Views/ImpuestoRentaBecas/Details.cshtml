@@ -1,0 +1,90 @@
+﻿@model Beca_3._0.Models.ImpuestoRentaBeca3
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ImpuestoRentaBeca3</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AnalisisInicialBeca.Cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnalisisInicialBeca.Cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Formulario102Padre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Formulario102Padre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Formulario104Padre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Formulario104Padre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comprobante107Padre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comprobante107Padre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Formulario102Madre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Formulario102Madre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Formulario104Madre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Formulario104Madre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comprobante107Madre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comprobante107Madre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalFormularioPadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalFormularioPadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalFormularioMadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalFormularioMadre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ImpuestoRentaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

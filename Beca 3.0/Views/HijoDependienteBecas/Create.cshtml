@@ -1,0 +1,72 @@
+﻿@model Beca_3._0.Models.HijoDependienteBeca3
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Crear Hijo Dependiente</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.SolicitudID, "SolicitudID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SolicitudID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SolicitudID, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NombresApellidos, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NombresApellidos, new { htmlAttributes = new { @class = "form-control", placeholder = "Ej: Alex Antonio Alvarado" } })
+                @Html.ValidationMessageFor(model => model.NombresApellidos, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InstitucionEsdudia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.InstitucionEsdudia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.InstitucionEsdudia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CostoAnualEstudio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CostoAnualEstudio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CostoAnualEstudio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Crear" class="btn btn-success" />
+                @Html.ActionLink("Cancelar", "Index", "AnalisisInicialBecas", null, new { @class = "btn btn-primary btn-default" })
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("input").on("keypress", function () {
+            $input = $(this);
+            setTimeout(function () {
+                $input.val($input.val().toUpperCase());
+            }, 50);
+        })
+    })
+
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

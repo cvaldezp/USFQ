@@ -1,0 +1,56 @@
+﻿@model Beca_3._0.Models.HijoDependienteBeca3
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+
+<h3>Está seguro que desea eliminar este registro?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AnalisisInicialBeca.Cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnalisisInicialBeca.Cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombresApellidos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombresApellidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstitucionEsdudia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstitucionEsdudia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostoAnualEstudio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostoAnualEstudio)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <hr />
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-danger" /> 
+            @Html.ActionLink("Cancelar", "Index", "AnalisisInicialBecas", null, new { @class = "btn btn-primary btn-default" })
+        </div>
+    }
+</div>

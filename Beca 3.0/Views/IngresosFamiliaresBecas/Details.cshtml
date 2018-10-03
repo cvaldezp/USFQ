@@ -1,0 +1,138 @@
+﻿@model Beca_3._0.Models.IngresosFamiliaresBecas3
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>IngresosFamiliaresBecas3</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AnalisisInicialBeca.Cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnalisisInicialBeca.Cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sueldoBrutoPadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sueldoBrutoPadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IngresosAdicionalesPadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IngresosAdicionalesPadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InversionesPadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InversionesPadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArriendoPropiedadesPadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArriendoPropiedadesPadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SioNoRecibeAdicionalPadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SioNoRecibeAdicionalPadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SioNoTrabajaRelDependenciaPadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SioNoTrabajaRelDependenciaPadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sueldoBrutoMadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sueldoBrutoMadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IngresosAdicionalesMadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IngresosAdicionalesMadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InversionesMadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InversionesMadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArriendoPropiedadesMadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArriendoPropiedadesMadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SioNoRecibeAdicionalMadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SioNoRecibeAdicionalMadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SioNoTrabajaRelDependenciaMadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SioNoTrabajaRelDependenciaMadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalIngresosPadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalIngresosPadre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalIngresosMadre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalIngresosMadre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IngresosFamiliaresID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

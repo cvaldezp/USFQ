@@ -1,0 +1,488 @@
+﻿@model Beca_3._0.Models.EgresosFamiliaresBeca3
+<style type="text/css">
+    table {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th {
+        background: #808080;
+        text-align: left;
+        color: #FFF;
+        font-size: 18px;
+    }
+
+    td {
+        vertical-align: middle;
+    }
+</style>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@{
+    Html.EnableClientValidation(false);
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h2>EGRESOS FAMILIARES</h2>
+        <hr />
+        <h4>Cuánto gasta su familia mensualmente en:</h4>
+        <hr />
+        <h4>Nota: Colocar el valor de 0 si no tiene valores por ingresar.</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.EgresosFamiliaresID)
+
+        <table width="100%" border="1" cellspacing="3" cellpadding="3">
+            <tr>
+                <th colspan="8" scope="col">Egresos Familiares</th>
+            </tr>
+            <tr>
+                <td width="20%">Alimentación:</td>
+                <td  colspan="5">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
+                            @Html.EditorFor(model => model.Alimentacion, new { htmlAttributes = new { @class = "form-control calculaGastos solonumero" ,@required=""} })
+                            @Html.ValidationMessageFor(model => model.Alimentacion, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+                <td width="20%">Educación:</td>
+                <td>
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
+                            @Html.EditorFor(model => model.Educacion, new { htmlAttributes = new { @class = "form-control calculaGastos solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.Educacion, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">Salud (medicinas, médicos, etc.):</td>
+                <td  colspan="5">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
+                            @Html.EditorFor(model => model.Salud, new { htmlAttributes = new { @class = "form-control calculaGastos solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.Salud, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+
+                <td width="20%">Vestimenta:</td>
+                <td>
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
+                            @Html.EditorFor(model => model.Vestimenta, new { htmlAttributes = new { @class = "form-control calculaGastos solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.Vestimenta, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">Arriendo (incluir alícuota):</td>
+                <td colspan="5">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
+                            @Html.EditorFor(model => model.Arriendo, new { htmlAttributes = new { @class = "form-control calculaGastos solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.Arriendo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+                <td width="20%">Gastos Básicos (luz, agua, internet, teléfono, etc.):</td>
+                <td colspan="5">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
+                            @Html.EditorFor(model => model.GastosBasicos, new { htmlAttributes = new { @class = "form-control calculaGastos solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.GastosBasicos, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">Seguros privados (casa, auto, médico):</td>
+                <td colspan="5">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
+                            @Html.EditorFor(model => model.SeguroPrivado, new { htmlAttributes = new { @class = "form-control calculaGastos solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.SeguroPrivado, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+                <td width="20%">Cuotas de préstamos:</td>
+                <td colspan="5">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
+                            @Html.EditorFor(model => model.CuotaPrestamos, new { htmlAttributes = new { @class = "form-control calculaGastos solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.CuotaPrestamos, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+                <td width="20%">Restaurantes:</td>
+                <td colspan="5">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
+                            @Html.EditorFor(model => model.Restaurantes, new { htmlAttributes = new { @class = "form-control calculaGastos solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.Restaurantes, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+                <td width="20%">Entretenimiento:</td>
+                <td colspan="5">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
+                            @Html.EditorFor(model => model.Entretenimiento, new { htmlAttributes = new { @class = "form-control calculaGastos solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.Entretenimiento, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">Viajes:</td>
+                <td colspan="5">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
+                            @Html.EditorFor(model => model.Viajes, new { htmlAttributes = new { @class = "form-control calculaGastos solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.Viajes, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+                <td width="20%">Compra de equipos, muebles, etc.:</td>
+                <td colspan="5">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
+                            @Html.EditorFor(model => model.CompraEquipos, new { htmlAttributes = new { @class = "form-control calculaGastos solonumero", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.CompraEquipos, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+
+            @*<tr>
+                <td width="20%">Otros Egresos: </td>
+                <td colspan="3">
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.OtrosEgresos, new { htmlAttributes = new { @class = "form-control calculaGastos" } })
+                            @Html.ValidationMessageFor(model => model.OtrosEgresos, "", new { @class = "text-danger" })
+                            @Html.ActionLink("Otros Egresos", "Index", "MasEgresos", null, new { @class = "btn btn-primary btn-large" })
+                        </div>
+                    </div>
+                </td>
+            </tr>*@
+        </table>
+        <br />
+        <table width="100%" border="1" cellspacing="3" cellpadding="3">
+
+            <tr>
+
+                <th>
+                    Otros Egresos
+                </th>
+                <th>
+                    Valor
+                </th>
+                <th>
+                    Acciones
+                </th>
+
+            </tr>
+
+            @foreach (var MasEgresos in Model.MasEgresosBeca3)
+            {
+                <tr>
+                    <td>
+                        @MasEgresos.Descripcion
+                    </td>
+                    <td class="tdValor">
+                        @MasEgresos.ValorOtrosEgresos
+
+                    </td>
+
+                    <td>
+
+                        @Html.ActionLink("Editar", "Edit", "MasEgresosBecas", new { id = MasEgresos.OtroEgresoID }, new { @class = "btn btn-primary btn-success" })
+                        @Html.ActionLink("Borrar", "Delete", "MasEgresosBecas", new { id = MasEgresos.OtroEgresoID }, new { @class = "btn btn-primary btn-danger" })
+                    </td>
+                </tr>
+            }
+
+
+            <tr>
+
+                <td>
+                    @Html.ActionLink("Ingresar datos", "Create", "MasEgresosBecas", null, new { @class = "btn btn-primary btn-large llamar" })
+                </td>
+
+            </tr>
+
+
+
+            <tr>
+
+                <th>
+                    Descuentos en el rol (Ej. IESS, Impuesto a la Renta)
+                </th>
+                <th>
+                    Valor
+                </th>
+                <th>
+                    Acciones
+                </th>
+
+            </tr>
+
+            @foreach (var rolDsto in Model.RolDescuentoBecas3)
+            {
+                <tr>
+                    <td>
+                        @rolDsto.Descripcion
+                    </td>
+                    <td class="tdValor1">
+                        @rolDsto.ValorOtrosEgresos
+
+                    </td>
+
+                    <td>
+
+                        @Html.ActionLink("Editar", "Edit", "RolDescuentoBecas", new { id = rolDsto.DescuentoRolID }, new { @class = "btn btn-primary btn-success" })
+                        @Html.ActionLink("Borrar", "Delete", "RolDescuentoBecas", new { id = rolDsto.DescuentoRolID }, new { @class = "btn btn-primary btn-danger" })
+                    </td>
+                </tr>
+            }
+
+
+            <tr>
+
+                <td colspan="3">
+                    @Html.ActionLink("Ingresar datos", "Create", "RolDescuentoBecas", null, new { @class = "btn btn-primary btn-large llamar" })
+                </td>
+
+            </tr>
+        </table>
+        <br />
+        <table width="100%" border="1" cellspacing="3" cellpadding="3">
+            <tr>
+                <td>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Totalegresos, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Totalegresos, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.Totalegresos, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TotalOtrosEgresos, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TotalOtrosEgresos, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.TotalOtrosEgresos, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TotalDescuentosRol, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TotalDescuentosRol, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.TotalDescuentosRol, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Regresar", "Index", "IngresosFamiliaresBecas", null, new { @class = "btn btn-primary btn-large" })
+                <input type="submit" value="Siguiente" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<script  type="text/javascript">
+
+    $(document).on("keyup", ".padre", function () {
+
+        var valorTotal = 0;
+        var suma_horas = 0;
+
+
+        $(".calculaGastos").each(function () {
+            if($(this).val()!=="")
+                suma_horas += parseFloat($(this).val().replace(/\./g, '').replace(',', '.'));
+
+
+        });
+        suma_horas = suma_horas.toString().replace(".", ",");
+        $("#Totalegresos").floatValue(val(suma_horas));
+    });
+
+    $(".calculaGastos").on("blur", "", function () {
+        var suma_horas = 0;
+
+        $(".calculaGastos").each(function () {
+            if ($(this).val() !== "")
+                suma_horas += parseFloat($(this).val().replace(/\./g, '').replace(',', '.'));
+
+        });
+        //suma_horas = suma_horas.toString().replace(".", ",");
+        var sumtdHoras=0;
+        $(".tdValor").each(function(){
+            sumtdHoras += parseFloat($(this).text().replace(/\./g, '').replace(',', '.'));
+        });
+        suma_horas = suma_horas.toString().replace(".", ",");
+        $("#Totalegresos").val(suma_horas);
+    });
+
+
+    $(document).on("keypress", ".solonumero", function (evt) {
+
+
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        console.log(charCode);
+        if (charCode > 31 && (charCode < 48 || charCode > 57 ) )
+            return false;
+
+        return true;
+    });
+
+
+      (function () {
+        $('.llamar').on('click', function (e) {
+            var $a = $(this);
+            var url = $a.prop('href').split("?")[0];
+
+            console.log(url);
+            // http://localhost:60506/ReferenciasBancariaGaranteCH/Create/1
+
+            var parametro = {
+                
+                //AlimentacionParam: $('#Alimentacion').val(),
+                AlimentacionParam: parseFloat($('#Alimentacion').val().replace(/\./g, '').replace(',', '.')),
+                //EducacionParam: parseFloat($('#Educacion').val()),
+                EducacionParam: parseFloat($('#Educacion').val().replace(/\./g, '').replace(',', '.')),
+                //SaludParam: $('#Salud').val(),
+                SaludParam: parseFloat($('#Salud').val().replace(/\./g, '').replace(',', '.')),
+                //VestimentaParam: $('#Vestimenta').val(),
+                VestimentaParam: parseFloat($('#Vestimenta').val().replace(/\./g, '').replace(',', '.')),
+                //ArriendoParam: $('#Arriendo').val(),
+                ArriendoParam: parseFloat($('#Arriendo').val().replace(/\./g, '').replace(',', '.')),
+                //GastosBasicosParam: $('#GastosBasicos').val(),
+                GastosBasicosParam: parseFloat($('#GastosBasicos').val().replace(/\./g, '').replace(',', '.')),
+                //SeguroPrivadoParam: $('#SeguroPrivado').val(),
+                SeguroPrivadoParam: parseFloat($('#SeguroPrivado').val().replace(/\./g, '').replace(',', '.')),
+                //CuotaPrestamosParam: $('#CuotaPrestamos').val(),
+                CuotaPrestamosParam: parseFloat($('#CuotaPrestamos').val().replace(/\./g, '').replace(',', '.')),
+                //RestaurantesParam: $('#Restaurantes').val(),
+                RestaurantesParam: parseFloat($('#Restaurantes').val().replace(/\./g, '').replace(',', '.')),
+                //EntretenimientoParam: $('#Entretenimiento').val(),
+                EntretenimientoParam: parseFloat($('#Entretenimiento').val().replace(/\./g, '').replace(',', '.')),
+                //ViajesParam: $('#Viajes').val(),
+                ViajesParam: parseFloat($('#Viajes').val().replace(/\./g, '').replace(',', '.')),
+                //CompraEquiposParam: $('#CompraEquipos').val(),
+                CompraEquiposParam: parseFloat($('#SeguroPrivado').val().replace(/\./g, '').replace(',', '.')),
+                OtrosEgresosParam: 0,
+                DescuentoRolParam: 0,
+                //TotalegresosParam: parseFloat($('#Totalegresos').val())
+                TotalegresosParam: parseFloat($('#Totalegresos').val().replace(/\./g, '').replace(',', '.'))
+
+            };
+
+            console.log($.param(parametro));
+            // tipo=1
+
+            //console.log(url + "?" + $.param(parametro));
+            // http://localhost:60506/ReferenciasBancariaGaranteCH/Create/1?tipo=1
+
+            //e.preventDefault();
+
+            $a.prop('href', url + "?" + $.param(parametro));
+        });
+      })();
+
+      $(document).ready(function () {
+          var totalOtros = 0;
+          $(".tdValor").each(function () {
+              totalOtros += parseFloat($(this).text());
+
+          });
+
+          console.log("total:" + totalOtros);
+          /// aqui hacer la suma de
+          $('#TotalOtrosEgresos').val(parseFloat(totalOtros));
+
+      });
+
+      $(document).ready(function () {
+          var totalOtros = 0;
+          $(".tdValor1").each(function () {
+              totalOtros += parseFloat($(this).text());
+
+          });
+
+          console.log("total:" + totalOtros);
+          /// aqui hacer la suma de
+          $('#TotalDescuentosRol').val(parseFloat(totalOtros));
+
+      });
+
+      $(document).ready(function () {
+          $("input").on("keypress", function () {
+              $input = $(this);
+              setTimeout(function () {
+                  $input.val($input.val().toUpperCase());
+              }, 50);
+          })
+      })
+
+</script>
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

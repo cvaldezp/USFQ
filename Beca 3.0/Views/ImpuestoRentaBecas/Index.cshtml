@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Beca_3._0.Models.ImpuestoRentaBeca3>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AnalisisInicialBeca.Cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Formulario102Padre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Formulario104Padre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comprobante107Padre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Formulario102Madre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Formulario104Madre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comprobante107Madre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalFormularioPadre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalFormularioMadre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnalisisInicialBeca.Cedula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Formulario102Padre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Formulario104Padre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comprobante107Padre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Formulario102Madre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Formulario104Madre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comprobante107Madre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalFormularioPadre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalFormularioMadre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ImpuestoRentaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ImpuestoRentaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ImpuestoRentaID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beca 3.0", "Beca 3.0\Beca 3.0.csproj", "{4A84516D-5B89-4E7C-8E81-386A2AED9CD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beca 3.0.Tests", "Beca 3.0.Tests\Beca 3.0.Tests.csproj", "{514E6D05-7CF8-4D84-8845-43A73C975179}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A84516D-5B89-4E7C-8E81-386A2AED9CD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A84516D-5B89-4E7C-8E81-386A2AED9CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A84516D-5B89-4E7C-8E81-386A2AED9CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A84516D-5B89-4E7C-8E81-386A2AED9CD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{514E6D05-7CF8-4D84-8845-43A73C975179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{514E6D05-7CF8-4D84-8845-43A73C975179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{514E6D05-7CF8-4D84-8845-43A73C975179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{514E6D05-7CF8-4D84-8845-43A73C975179}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

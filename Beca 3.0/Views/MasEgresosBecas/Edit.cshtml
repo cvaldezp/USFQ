@@ -1,0 +1,73 @@
+﻿@model Beca_3._0.Models.MasEgresosBeca3
+
+@{
+    ViewBag.Title = "Edit";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<h2>Modificación de Otros Egresos</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.OtroEgresoID)
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.EgresosFamiliaresID, "EgresosFamiliaresID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("EgresosFamiliaresID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EgresosFamiliaresID, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ValorOtrosEgresos, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ValorOtrosEgresos, new { htmlAttributes = new { @class = "form-control solonumero" } })
+                @Html.ValidationMessageFor(model => model.ValorOtrosEgresos, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Modificar" class="btn btn-success" />
+                @Html.ActionLink("Cancelar", "Index", "EgresosFamiliaresBecas", null, new { @class = "btn btn-primary btn-primary" })
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+
+    $(document).on("keypress", ".solonumero", function (evt) {
+
+
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        console.log(charCode);
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    });
+    $(document).ready(function () {
+        $("input").on("keypress", function () {
+            $input = $(this);
+            setTimeout(function () {
+                $input.val($input.val().toUpperCase());
+            }, 50);
+        })
+    })
+</script>
