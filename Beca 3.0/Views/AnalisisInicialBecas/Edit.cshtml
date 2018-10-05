@@ -107,6 +107,19 @@
                     <th colspan="6" scope="col">INFORMACIÓN ESTUDIANTE</th>
                 </tr>
                 <tr>
+                    <td width="20%">Código Banner:</td>
+                    <td colspan="5">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
+                                @Html.EditorFor(model => model.CodBanner, new { htmlAttributes = new { @class = "form-control necessary solonumero", @placeholder = "Ej: 00210546", @required = ""} })
+                                @Html.ValidationMessageFor(model => model.CodBanner, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
                     <td width="20%">Cédula: (*)</td>
                     <td colspan="5">
                         <div class="form-group">
@@ -150,7 +163,7 @@
                         <div class="form-group">
                             @*@Html.LabelFor(model => model.NombreBeca, htmlAttributes: new { @class = "control-label col-md-2" })*@
                             <div class="col-md-10">                                
-                                @Html.EditorFor(model => model.MontoInterv, new { htmlAttributes = new { @class = "form-control monto", @placeholder = "Ej: 600", @required = "" } })
+                                @Html.EditorFor(model => model.MontoInterv, new { htmlAttributes = new { @class = "form-control monto", @placeholder = "Ej: 600", @required = "" , @maxlength = "8" } })
                                 @Html.ValidationMessageFor(model => model.MontoInterv, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -673,8 +686,8 @@
                 MontoIntervParam: $('#MontoInterv').val(),                
                 AniosTrabajoActualRFParam: $('#AniosTrabajoActualRF').val(),
                 RefFamiliarRepFinancieroParam: $('#RefFamiliarRepFinanciero').val(),
-                AniosTrabajoActualConyugeParam: $('#AniosTrabajoActualConyuge').val()
-                
+                AniosTrabajoActualConyugeParam: $('#AniosTrabajoActualConyuge').val(),
+                CodBannerParam: $('#CodBanner').val()                
                 
 
             };
@@ -708,6 +721,19 @@
             }, 50);
         })
     })
+
+    $(document).on("keypress", ".solonumero", function (evt) {
+
+
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        console.log(charCode);
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    });
+
+
 </script>
 
 @section Scripts {

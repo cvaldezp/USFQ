@@ -49,7 +49,7 @@ namespace Beca_3._0.Controllers
         }
 
         // GET: HijoDependienteBecas/Create
-        public ActionResult Create(string CedulaParam, string NombreEstudianteParam, string FechasolicitudBecaParam, string EmailEstudianteParam, string NombreRepresentanteFinanParam, string ApellidoRepresentanteFinanParam, string NacionalidadRepresentanteFinanParam, string EstadoCivilRFParam, string ResidenciaPropiaParam, string GeneroRFParam, string SectorRepresentanteFinanParam, string CiudadRepresentanteFinanParam, string TelefonoCelularRepresentanteFinanParam, string TelefonoConvencionalRepresentanteFinanParam, string LugarTrabajoActualRFParam, string CargoTrabajoActualRFParam, string DireccionTrabajoRFParam, int NumeroAniosTrabajoActualRFParam, string NivelEducacionRFParam, string NombreConyugeParam, string ApellidoConyugeParam, string NacionalidadConyugeParam, string EstadoCivilConyugeParam, string ResidenciaPropiaConyugeParam, string GeneroConyugeParam, string SectorConyugeParam, string CiudadConyugeParam, string TelefonoCelularConyugeParam, string TelefonoConvencionalConyugeParam, string LugarTrabajoActualConyugeParam, string CargoTrabajoActualConyugeParam, string DireccionTrabajoConyugeParam, int NumeroAniosTrabajoActualConyugeParam, string NivelEducacionCulminadaConyugeParam, int NumeroHijosConyugeParam, string DependeAlguienMasParam, string NombresDependientesAdicionalesParam, string ComentariosAicionalesParam, string EstadoParam, float MontoIntervParam, string AniosTrabajoActualRFParam, string RefFamiliarRepFinancieroParam, string AniosTrabajoActualConyugeParam)
+        public ActionResult Create(string CedulaParam, string NombreEstudianteParam, string FechasolicitudBecaParam, string EmailEstudianteParam, string NombreRepresentanteFinanParam, string ApellidoRepresentanteFinanParam, string NacionalidadRepresentanteFinanParam, string EstadoCivilRFParam, string ResidenciaPropiaParam, string GeneroRFParam, string SectorRepresentanteFinanParam, string CiudadRepresentanteFinanParam, string TelefonoCelularRepresentanteFinanParam, string TelefonoConvencionalRepresentanteFinanParam, string LugarTrabajoActualRFParam, string CargoTrabajoActualRFParam, string DireccionTrabajoRFParam, int NumeroAniosTrabajoActualRFParam, string NivelEducacionRFParam, string NombreConyugeParam, string ApellidoConyugeParam, string NacionalidadConyugeParam, string EstadoCivilConyugeParam, string ResidenciaPropiaConyugeParam, string GeneroConyugeParam, string SectorConyugeParam, string CiudadConyugeParam, string TelefonoCelularConyugeParam, string TelefonoConvencionalConyugeParam, string LugarTrabajoActualConyugeParam, string CargoTrabajoActualConyugeParam, string DireccionTrabajoConyugeParam, int NumeroAniosTrabajoActualConyugeParam, string NivelEducacionCulminadaConyugeParam, int NumeroHijosConyugeParam, string DependeAlguienMasParam, string NombresDependientesAdicionalesParam, string ComentariosAicionalesParam, string EstadoParam, float MontoIntervParam, string AniosTrabajoActualRFParam, string RefFamiliarRepFinancieroParam, string AniosTrabajoActualConyugeParam, string CodBannerParam)
         {
             var nameUser = User.Identity.Name;
             var inpBuscar = nameUser;
@@ -102,7 +102,8 @@ namespace Beca_3._0.Controllers
             IDEstudiante.AniosTrabajoActualRF = AniosTrabajoActualRFParam;
             IDEstudiante.RefFamiliarRepFinanciero = RefFamiliarRepFinancieroParam;
             IDEstudiante.AniosTrabajoActualConyuge = AniosTrabajoActualConyugeParam;
-            
+            IDEstudiante.CodBanner = CodBannerParam;
+
 
             IDEstudiante.Estado = "Ingresada";
             IDEstudiante.MontoInterv = MontoIntervParam;

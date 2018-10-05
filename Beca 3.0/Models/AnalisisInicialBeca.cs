@@ -159,6 +159,9 @@ namespace Beca_3._0.Models
         [Display(Name = "Referencia Familiar:")]
         public string RefFamiliarRepFinanciero { get; set; }
 
+        [Display(Name = "Codigo Banner:")]
+        public string CodBanner { get; set; }
+
         public virtual ICollection<HijoDependienteBeca3> HijoDependienteBeca3 { get; set; }
     }
 }
