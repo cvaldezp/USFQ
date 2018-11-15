@@ -22,7 +22,7 @@ namespace Beca_3._0.Controllers
             Asis_FinanEntities1 entities = new Asis_FinanEntities1();
 
 
-            //Validación
+            //Validación si existe
             var nameUser = User.Identity.Name;
 
             entities.PRC_SOLI_INICIAL_BECA3(nameUser);
