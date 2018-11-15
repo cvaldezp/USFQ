@@ -21,7 +21,7 @@ namespace Beca_3._0.Controllers
 
             Asis_FinanEntities1 entities = new Asis_FinanEntities1();
 
-           
+
 
             var nameUser = User.Identity.Name;
 
@@ -33,20 +33,21 @@ namespace Beca_3._0.Controllers
                                     where h.EmailEstudiante == inpBuscar //&& h.Estado == "Enviado"
                                     select h.Estado).FirstOrDefault();
 
-         
+
 
             var IDSolicitud = (from h in db.AnalisisInicialBecas
                                where h.EmailEstudiante == inpBuscar //&& h.Estado == "Enviado"
                                select h.SolicitudID).FirstOrDefault();
 
-         
+
 
 
             if (ControlporEstado == "Enviado")
             {
-                return RedirectToAction("SolicitudEnProceso");                
+                return RedirectToAction("SolicitudEnProceso");
             }
-            else { 
+            else
+            {
                 if (IDSolicitud == 0)
                 {
                     return RedirectToAction("Create", "AnalisisInicialBecas");
@@ -130,10 +131,10 @@ namespace Beca_3._0.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SolicitudID,Cedula,NombresCompletosEstudiante,FechasolicitudBeca,EmailEstudiante,NombreRepresentanteFinan,ApellidoRepresentanteFinan,NacionalidadRepresentanteFinan,EstadoCivilRF,ResidenciaPropia,GeneroRF,SectorRepresentanteFinan,CiudadRepresentanteFinan,TelefonoCelularRepresentanteFinan,TelefonoConvencionalRepresentanteFinan,LugarTrabajoActualRF,CargoTrabajoActualRF,DireccionTrabajoRF,NumeroAniosTrabajoActualRF,NivelEducacionRF,NombreConyuge,ApellidoConyuge,NacionalidadConyuge,EstadoCivilConyuge,ResidenciaPropiaConyuge,GeneroConyuge,SectorConyuge,CiudadConyuge,TelefonoCelularConyuge,TelefonoConvencionalConyuge,LugarTrabajoActualConyuge,CargoTrabajoActualConyuge,DireccionTrabajoConyuge,NumeroAniosTrabajoActualConyuge,NivelEducacionCulminadaConyuge,NumeroHijosConyuge,DependeAlguienMas,NombresDependientesAdicionales,ComentariosAicionales,Estado,MontoInterv,AniosTrabajoActualRF,AniosTrabajoActualConyuge,RefFamiliarRepFinanciero")] AnalisisInicialBeca analisisInicialBeca)
+        public ActionResult Create([Bind(Include = "SolicitudID,Cedula,NombresCompletosEstudiante,FechasolicitudBeca,EmailEstudiante,NombreRepresentanteFinan,ApellidoRepresentanteFinan,NacionalidadRepresentanteFinan,EstadoCivilRF,ResidenciaPropia,GeneroRF,SectorRepresentanteFinan,CiudadRepresentanteFinan,TelefonoCelularRepresentanteFinan,TelefonoConvencionalRepresentanteFinan,LugarTrabajoActualRF,CargoTrabajoActualRF,DireccionTrabajoRF,NumeroAniosTrabajoActualRF,NivelEducacionRF,NombreConyuge,ApellidoConyuge,NacionalidadConyuge,EstadoCivilConyuge,ResidenciaPropiaConyuge,GeneroConyuge,SectorConyuge,CiudadConyuge,TelefonoCelularConyuge,TelefonoConvencionalConyuge,LugarTrabajoActualConyuge,CargoTrabajoActualConyuge,DireccionTrabajoConyuge,NumeroAniosTrabajoActualConyuge,NivelEducacionCulminadaConyuge,NumeroHijosConyuge,DependeAlguienMas,NombresDependientesAdicionales,ComentariosAicionales,Estado,MontoInterv,AniosTrabajoActualRF,AniosTrabajoActualConyuge,RefFamiliarRepFinanciero,CodBanner")] AnalisisInicialBeca analisisInicialBeca)
         {
             var nameUser = User.Identity.Name;
-            
+
 
             var SIoNOList = new SelectList(new[] { "SI", "NO" });
             ViewBag.ListaSIoNO = SIoNOList;
@@ -214,7 +215,7 @@ namespace Beca_3._0.Controllers
             //        return RedirectToAction("Edit", "AnalisisInicialBecas", new { id = IDSolicitud });
             //    }
 
-                
+
             //}
 
             if (id == null)
@@ -236,7 +237,7 @@ namespace Beca_3._0.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SolicitudID,Cedula,NombresCompletosEstudiante,FechasolicitudBeca,EmailEstudiante,NombreRepresentanteFinan,ApellidoRepresentanteFinan,NacionalidadRepresentanteFinan,EstadoCivilRF,ResidenciaPropia,GeneroRF,SectorRepresentanteFinan,CiudadRepresentanteFinan,TelefonoCelularRepresentanteFinan,TelefonoConvencionalRepresentanteFinan,LugarTrabajoActualRF,CargoTrabajoActualRF,DireccionTrabajoRF,NumeroAniosTrabajoActualRF,NivelEducacionRF,NombreConyuge,ApellidoConyuge,NacionalidadConyuge,EstadoCivilConyuge,ResidenciaPropiaConyuge,GeneroConyuge,SectorConyuge,CiudadConyuge,TelefonoCelularConyuge,TelefonoConvencionalConyuge,LugarTrabajoActualConyuge,CargoTrabajoActualConyuge,DireccionTrabajoConyuge,NumeroAniosTrabajoActualConyuge,NivelEducacionCulminadaConyuge,NumeroHijosConyuge,DependeAlguienMas,NombresDependientesAdicionales,ComentariosAicionales,Estado,MontoInterv,AniosTrabajoActualRF,AniosTrabajoActualConyuge,RefFamiliarRepFinanciero")] AnalisisInicialBeca analisisInicialBeca)
+        public ActionResult Edit([Bind(Include = "SolicitudID,Cedula,NombresCompletosEstudiante,FechasolicitudBeca,EmailEstudiante,NombreRepresentanteFinan,ApellidoRepresentanteFinan,NacionalidadRepresentanteFinan,EstadoCivilRF,ResidenciaPropia,GeneroRF,SectorRepresentanteFinan,CiudadRepresentanteFinan,TelefonoCelularRepresentanteFinan,TelefonoConvencionalRepresentanteFinan,LugarTrabajoActualRF,CargoTrabajoActualRF,DireccionTrabajoRF,NumeroAniosTrabajoActualRF,NivelEducacionRF,NombreConyuge,ApellidoConyuge,NacionalidadConyuge,EstadoCivilConyuge,ResidenciaPropiaConyuge,GeneroConyuge,SectorConyuge,CiudadConyuge,TelefonoCelularConyuge,TelefonoConvencionalConyuge,LugarTrabajoActualConyuge,CargoTrabajoActualConyuge,DireccionTrabajoConyuge,NumeroAniosTrabajoActualConyuge,NivelEducacionCulminadaConyuge,NumeroHijosConyuge,DependeAlguienMas,NombresDependientesAdicionales,ComentariosAicionales,Estado,MontoInterv,AniosTrabajoActualRF,AniosTrabajoActualConyuge,RefFamiliarRepFinanciero,CodBanner")] AnalisisInicialBeca analisisInicialBeca)
         {
             var nameUser = User.Identity.Name;
             var SIoNOList = new SelectList(new[] { "SI", "NO" });

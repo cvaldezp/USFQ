@@ -56,7 +56,7 @@
 }
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     <h2>INGRESAR DATOS DE SOLICITUD ESTUDIANTE</h2>
@@ -73,7 +73,7 @@
 
 
     <h4> Para aplicar a este programa, por favor llene los campos del formulario adjunto. El Comité de Asistencia Financiera realizará un análisis preliminar con la información proporcionada, a fin de asignar los porcentajes de ayuda financiera a los que su representado(a) pueda acceder.</h4>
-        <hr />
+    <hr />
         <h4>
             <b> IMPORTANTE: Los datos a ser llenados en esta sección deben incluir la información correspondiente al núcleo familiar.</b>
         </h4>
@@ -87,13 +87,26 @@
                     <th colspan="6" scope="col">INFORMACIÓN ESTUDIANTE</th>
                 </tr>
                 <tr>
+                    <td width="20%">Código Banner:</td>
+                    <td colspan="5">
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
+                                @Html.EditorFor(model => model.CodBanner, new { htmlAttributes = new { @class = "form-control necessary cedula", @placeholder = "Ej: 00210546", @required = "" } })
+                                @Html.ValidationMessageFor(model => model.CodBanner, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
                     <td width="20%">Cédula:</td>
                     <td colspan="5">
                         <div class="form-group">
                             @*@Html.LabelFor(model => model.CodigoBanner, htmlAttributes: new { @class = "control-label col-md-2" })*@
                             <div class="col-md-10">
                                 @*@Html.EditorFor(model => model.CodigoBanner, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })*@
-                                @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "form-control necessary cedula", @placeholder="Ej: 1713162318",@required = "" } })
+                                @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "form-control necessary cedula", @placeholder = "Ej: 1713162318", @required = "" } })
                                 @Html.ValidationMessageFor(model => model.Cedula, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -418,25 +431,25 @@
                 </tr>
 
                 @*@foreach (var hijos in Model.HijoDependienteBeca3)
-                {
+                    {
 
-                    <tr>
-                        <td>
-                            @hijos.NombresApellidos
-                        </td>
-                        <td>
-                            @hijos.InstitucionEsdudia
-                        </td>
-                        <td>
-                            @hijos.CostoAnualEstudio
-                        </td>
-                        <td>
+                        <tr>
+                            <td>
+                                @hijos.NombresApellidos
+                            </td>
+                            <td>
+                                @hijos.InstitucionEsdudia
+                            </td>
+                            <td>
+                                @hijos.CostoAnualEstudio
+                            </td>
+                            <td>
 
-                            @Html.ActionLink("Editar", "Edit", "HijoDependienteBeca3", new { id = hijos.HijoDependienteID }, new { @class = "btn btn-primary btn-success" })
-                            @Html.ActionLink("Borrar", "Delete", "HijoDependienteBeca3", new { id = hijos.HijoDependienteID }, new { @class = "btn btn-primary btn-danger" })
-                        </td>
-                    </tr>
-                }*@
+                                @Html.ActionLink("Editar", "Edit", "HijoDependienteBeca3", new { id = hijos.HijoDependienteID }, new { @class = "btn btn-primary btn-success" })
+                                @Html.ActionLink("Borrar", "Delete", "HijoDependienteBeca3", new { id = hijos.HijoDependienteID }, new { @class = "btn btn-primary btn-danger" })
+                            </td>
+                        </tr>
+                    }*@
 
 
                 <tr>
@@ -512,11 +525,11 @@
                 </div>
 
             </div>
-            
-        </form>        
-       
-       
- 
+
+        </form>
+
+
+
 }
 
 

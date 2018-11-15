@@ -11,14 +11,14 @@ namespace Beca_3._0.Models
         [Key]
         [Display(Name = "Solucitud:")]
         public int SolicitudID { get; set; }
-        
+
 
         [Display(Name = "Cédula:")]
         public string Cedula { get; set; }
 
-        [Display(Name = "Nombres Completos:")]        
+        [Display(Name = "Nombres Completos:")]
         public string NombresCompletosEstudiante { get; set; }
-        
+
 
         [Display(Name = "Fecha de Solicitud:")]
         [DataType(DataType.Date)]
@@ -150,14 +150,17 @@ namespace Beca_3._0.Models
         [Display(Name = "Monto para Inversion:")]
         public float MontoInterv { get; set; }
 
-        [Display(Name = "Número de Años Laborales:")]        
+        [Display(Name = "Número de Años Laborales:")]
         public string AniosTrabajoActualRF { get; set; }
 
-        [Display(Name = "Número de Años Laborales:")]        
+        [Display(Name = "Número de Años Laborales:")]
         public string AniosTrabajoActualConyuge { get; set; }
 
         [Display(Name = "Referencia Familiar:")]
         public string RefFamiliarRepFinanciero { get; set; }
+
+        [Display(Name = "Codigo Banner:")]
+        public string CodBanner { get; set; }
 
         public virtual ICollection<HijoDependienteBeca3> HijoDependienteBeca3 { get; set; }
     }
